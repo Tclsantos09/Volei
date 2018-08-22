@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:src="@drawable/redevolei"
+        android:layout_width="match_parent"
+        android:layout_height="79dp"
+        android:scaleType="centerCrop"
+        />
+
+    <TextView
+        android:id="@+id/num_set"
+        android:layout_marginTop="25dp"
+        android:layout_width="120dp"
+        android:layout_height="53dp"
+        android:text="SET 1"
+        android:textSize="45sp"
+        android:textColor="#304FFE"
+        android:fontFamily="sans-serif-medium"
+        android:layout_centerHorizontal="true"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="80dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            tools:context=".MainActivity">
+
+            <TextView
+                android:layout_width="55dp"
+                android:layout_height="20dp"
+                android:fontFamily="sans-serif-medium"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="20dp"
+                android:textColor="#304FFE"
+                android:text="Time A"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:id="@+id/time_a_ponto"
+                    android:layout_width="68dp"
+                    android:layout_height="65dp"
+                    android:layout_marginBottom="30dp"
+                    android:fontFamily="sans-serif-light"
+                    android:text="0"
+                    android:textSize="56sp"
+                    android:textColor="#000000"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/time_a_falta"
+                    android:layout_width="20dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="15dp"
+                    android:fontFamily="sans-serif-light"
+                    android:text="0"
+                    android:textSize="30sp"
+                    android:textColor="#000000"/>
+
+            </LinearLayout>
+
+            <Button
+                android:layout_width="140dp"
+                android:layout_height="45dp"
+                android:text="1 Ponto"
+                android:layout_marginBottom="25dp"
+                android:layout_gravity="center_horizontal"
+                android:onClick="A1Ponto"/>
+
+            <Button
+                android:layout_width="130dp"
+                android:layout_height="35dp"
+                android:text="Falta"
+                android:layout_marginBottom="15dp"
+                android:layout_gravity="center_horizontal"
+                android:onClick="AFalta"
+                android:background="#D32F2F"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_marginTop="16dp"
+            android:background="#304FFE"
+            android:layout_width="1dp"
+            android:layout_height="259dp"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            tools:context=".MainActivity">
+
+            <TextView
+                android:layout_width="55dp"
+                android:layout_height="20dp"
+                android:layout_marginBottom="18dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="Time B"
+                android:textColor="#304FFE"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:id="@+id/time_b_ponto"
+                    android:layout_width="68dp"
+                    android:layout_height="65dp"
+                    android:layout_marginBottom="30dp"
+                    android:fontFamily="sans-serif-light"
+                    android:text="0"
+                    android:textSize="56sp"
+                    android:textColor="#000000"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/time_b_falta"
+                    android:layout_width="20dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="15dp"
+                    android:fontFamily="sans-serif-light"
+                    android:text="0"
+                    android:textSize="30sp"
+                    android:textColor="#000000"/>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/botao_b_ponto"
+                android:layout_width="140dp"
+                android:layout_height="45dp"
+                android:layout_marginBottom="15dp"
+                android:layout_gravity="center_horizontal"
+                android:onClick="B1Ponto"
+                android:text="1 Ponto" />
+
+            <Button
+                android:layout_width="140dp"
+                android:layout_height="45dp"
+                android:layout_marginBottom="15dp"
+                android:layout_gravity="center_horizontal"
+                android:onClick="BFalta"
+                android:text="Falta" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_conteudo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="125dp"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:id="@+id/msg_vencedor"
+            android:layout_width="115dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_horizontal"
+            android:text=""
+            android:textColor="#000000"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <Button
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_width="100dp"
+        android:layout_height="45dp"
+        android:text="REINICIAR"
+        android:layout_marginBottom="32dp"
+        android:onClick="reiniciar"/>
+
+</RelativeLayout>
