@@ -12,6 +12,8 @@ public class MainActivity extends AppCompatActivity {
     int FaltA = 0;
     int FaltB = 0;
     int Set = 1;
+    int Apontoset = 0;
+    int Bpontoset = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,32 +21,50 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+    //Display dos pontos do time A
     public void displayTimeA(int score) {
         TextView scoreView = (TextView) findViewById(R.id.time_a_ponto);
         scoreView.setText(String.valueOf(score));
     }
 
+    //Display dos pontos do time B
     public void displayTimeB(int score) {
         TextView scoreView = (TextView) findViewById(R.id.time_b_ponto);
         scoreView.setText(String.valueOf(score));
     }
 
-    public void displayTimefA(int score) {
+    //Display das faltas do time A
+    public void displayTimefaltaA(int score) {
         TextView scoreView = (TextView) findViewById(R.id.time_a_falta);
         scoreView.setText(String.valueOf(score));
     }
 
-    public void displayTimefB(int score) {
+    //Display das faltas do time B
+    public void displayTimefaltaB(int score) {
         TextView scoreView = (TextView) findViewById(R.id.time_b_falta);
         scoreView.setText(String.valueOf(score));
     }
 
+    //Display para mostrar em qual set do jogo está
     public void displaySet(int score) {
         TextView scoreView = (TextView) findViewById(R.id.num_set);
         scoreView.setText(String.valueOf("SET " + score));
     }
 
-    public void TimeVencedor(String score) {
+    //Display para mostrar a quantidade de sets que o time A ganhou
+    public void displayPlacarSetA(int score) {
+        TextView scoreView = (TextView) findViewById(R.id.A_ponto_set);
+        scoreView.setText(String.valueOf( + score));
+    }
+
+    //Display para mostrar a quantidade de sets que o time B ganhou
+    public void displayPlacarSetB(int score) {
+        TextView scoreView = (TextView) findViewById(R.id.B_ponto_set);
+        scoreView.setText(String.valueOf( + score));
+    }
+
+    //Display para mostrar a mensagem de fim de jogo
+    public void FimJogo(String score) {
         TextView scoreView = (TextView) findViewById(R.id.msg_vencedor);
         scoreView.setText(String.valueOf(score));
     }
@@ -52,28 +72,32 @@ public class MainActivity extends AppCompatActivity {
     public void A1Ponto(View v) {
         TimeA = TimeA + 1;
         if (Set < 5 && TimeA == 26){
+            Apontoset = Apontoset + 1;
             MudaSet(TimeA);
         }
         if (Set == 5 && TimeA == 15){
+            Apontoset = Apontoset + 1;
             MudaSet(TimeA);
         }
         if (Set == 5 && TimeA == 16){
-            MudaSet(TimeB);
+            MudaSet(TimeA);
         }
         displayTimeA(TimeA);
     }
 
     public void AFalta(View v) {
         FaltA = FaltA + 1;
-        displayTimefA(FaltA);
+        displayTimefaltaA(FaltA);
     }
 
     public void B1Ponto(View v) {
         TimeB = TimeB + 1;
         if (Set < 5 && TimeB == 26){
+            Bpontoset = Bpontoset + 1;
             MudaSet(TimeB);
         }
         if (Set == 5 && TimeB == 15){
+            Bpontoset = Bpontoset + 1;
             MudaSet(TimeB);
         }
         if (Set == 5 && TimeB == 16){
@@ -84,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void BFalta(View v) {
         FaltB = FaltB + 1;
-        displayTimefB(FaltB);
+        displayTimefaltaB(FaltB);
     }
 
     public void MudaSet(int ponto) {
@@ -96,16 +120,20 @@ public class MainActivity extends AppCompatActivity {
             FaltB = 0;
             displayTimeA(TimeA);
             displayTimeB(TimeB);
-            displayTimefA(FaltA);
-            displayTimefB(FaltB);
+            displayTimefaltaA(FaltA);
+            displayTimefaltaB(FaltB);
             displaySet(Set);
+            displayPlacarSetA(Apontoset);
+            displayPlacarSetB(Bpontoset);
         }
 
         if (Set == 5 && ponto == 15){
-            TimeVencedor("Fim de Jogo");
+            FimJogo("Fim de Jogo");
         }
 
         if (Set == 5 && ponto == 16){
+            Bpontoset = 0;
+            Apontoset = 0;
             Set = 1;
             TimeA = 0;
             TimeB = 0;
@@ -113,14 +141,18 @@ public class MainActivity extends AppCompatActivity {
             FaltB = 0;
             displayTimeA(TimeA);
             displayTimeB(TimeB);
-            displayTimefA(FaltA);
-            displayTimefB(FaltB);
+            displayTimefaltaA(FaltA);
+            displayTimefaltaB(FaltB);
             displaySet(Set);
-            TimeVencedor("");
+            displayPlacarSetA(Apontoset);
+            displayPlacarSetB(Bpontoset);
+            FimJogo("");
         }
     }
 
     public void reiniciar(View v){
+        Bpontoset = 0;
+        Apontoset = 0;
         TimeA = 0;
         TimeB = 0;
         FaltA = 0;
@@ -128,9 +160,11 @@ public class MainActivity extends AppCompatActivity {
         Set = 1;
         displayTimeA(TimeA);
         displayTimeB(TimeB);
-        displayTimefA(FaltA);
-        displayTimefB(FaltB);
+        displayTimefaltaA(FaltA);
+        displayTimefaltaB(FaltB);
         displaySet(Set);
-        TimeVencedor("");
+        displayPlacarSetA(Apontoset);
+        displayPlacarSetB(Bpontoset);
+        FimJogo("");
     }
 }

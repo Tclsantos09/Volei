@@ -5,32 +5,67 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="#ffffff">
 
     <ImageView
-        android:src="@drawable/redevolei"
+        android:src="@drawable/rede"
         android:layout_width="match_parent"
-        android:layout_height="79dp"
-        android:scaleType="centerCrop"
-        />
+        android:layout_height="110dp"
+        android:scaleType="centerCrop"/>
 
     <TextView
         android:id="@+id/num_set"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="50dp"
         android:layout_width="120dp"
         android:layout_height="53dp"
         android:text="SET 1"
         android:textSize="45sp"
-        android:textColor="#304FFE"
+        android:textColor="#217ece"
         android:fontFamily="sans-serif-medium"
         android:layout_centerHorizontal="true"/>
 
+    <TextView
+        android:layout_centerHorizontal="true"
+        android:id="@+id/dividor"
+        android:layout_width="20dp"
+        android:layout_height="35dp"
+        android:fontFamily="sans-serif-light"
+        android:text="x"
+        android:layout_below="@id/num_set"
+        android:textSize="30sp"
+        android:textColor="#000000"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/A_ponto_set"
+        android:layout_width="20dp"
+        android:layout_height="35dp"
+        android:fontFamily="sans-serif-light"
+        android:text="0"
+        android:layout_toLeftOf="@+id/dividor"
+        android:layout_below="@id/num_set"
+        android:textSize="30sp"
+        android:textColor="#000000"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/B_ponto_set"
+        android:layout_width="20dp"
+        android:layout_height="35dp"
+        android:fontFamily="sans-serif-light"
+        android:text="0"
+        android:layout_toRightOf="@id/dividor"
+        android:layout_below="@id/num_set"
+        android:textSize="30sp"
+        android:textColor="#000000"
+        android:textStyle="bold"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingTop="80dp">
+        android:paddingTop="130dp">
 
         <LinearLayout
             android:layout_width="0dp"
@@ -46,14 +81,16 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="16dp"
                 android:layout_marginTop="20dp"
-                android:textColor="#304FFE"
+                android:textColor="#217ece"
                 android:text="Time A"
-                android:textSize="16sp" />
+                android:textSize="16sp"/>
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal">
+                android:gravity="center_horizontal"
+                android:background="@drawable/placar_customizado"
+                android:layout_gravity="center_horizontal">
 
                 <TextView
                     android:id="@+id/time_a_ponto"
@@ -79,29 +116,31 @@
             </LinearLayout>
 
             <Button
-                android:layout_width="140dp"
-                android:layout_height="45dp"
+                android:layout_width="130dp"
+                android:layout_height="40dp"
                 android:text="1 Ponto"
+                android:layout_marginTop="25dp"
                 android:layout_marginBottom="25dp"
                 android:layout_gravity="center_horizontal"
-                android:onClick="A1Ponto"/>
+                android:onClick="A1Ponto"
+                android:background="@drawable/botao_customizado"/>
 
             <Button
                 android:layout_width="130dp"
-                android:layout_height="35dp"
+                android:layout_height="40dp"
                 android:text="Falta"
                 android:layout_marginBottom="15dp"
                 android:layout_gravity="center_horizontal"
                 android:onClick="AFalta"
-                android:background="#D32F2F"/>
+                android:background="@drawable/botao_falta"/>
 
         </LinearLayout>
 
         <View
-            android:layout_marginTop="16dp"
-            android:background="#304FFE"
+            android:layout_marginTop="15dp"
+            android:background="#217ece"
             android:layout_width="1dp"
-            android:layout_height="259dp"/>
+            android:layout_height="280dp"/>
 
         <LinearLayout
             android:layout_width="0dp"
@@ -118,13 +157,15 @@
                 android:layout_marginTop="20dp"
                 android:fontFamily="sans-serif-medium"
                 android:text="Time B"
-                android:textColor="#304FFE"
+                android:textColor="#217ece"
                 android:textSize="16sp" />
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal">
+                android:gravity="center_horizontal"
+                android:background="@drawable/placar_customizado"
+                android:layout_gravity="center_horizontal">
 
                 <TextView
                     android:id="@+id/time_b_ponto"
@@ -151,20 +192,23 @@
 
             <Button
                 android:id="@+id/botao_b_ponto"
-                android:layout_width="140dp"
-                android:layout_height="45dp"
-                android:layout_marginBottom="15dp"
+                android:layout_width="130dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="25dp"
                 android:layout_gravity="center_horizontal"
                 android:onClick="B1Ponto"
-                android:text="1 Ponto" />
+                android:text="1 Ponto"
+                android:background="@drawable/botao_customizado"/>
 
             <Button
-                android:layout_width="140dp"
-                android:layout_height="45dp"
+                android:layout_width="130dp"
+                android:layout_height="40dp"
                 android:layout_marginBottom="15dp"
                 android:layout_gravity="center_horizontal"
                 android:onClick="BFalta"
-                android:text="Falta" />
+                android:text="Falta"
+                android:background="@drawable/botao_falta"/>
 
         </LinearLayout>
 
@@ -175,7 +219,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="125dp"
+        android:layout_marginBottom="95dp"
         android:gravity="center_horizontal">
 
         <TextView
@@ -185,16 +229,18 @@
             android:layout_gravity="center_horizontal"
             android:text=""
             android:textColor="#000000"
-            android:textSize="20sp" />
+            android:textSize="20sp"/>
+
     </LinearLayout>
 
     <Button
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_width="100dp"
-        android:layout_height="45dp"
+        android:layout_height="40dp"
         android:text="REINICIAR"
         android:layout_marginBottom="32dp"
-        android:onClick="reiniciar"/>
+        android:onClick="reiniciar"
+        android:background="@drawable/botao_customizado"/>
 
 </RelativeLayout>
